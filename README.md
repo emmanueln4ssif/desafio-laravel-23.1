@@ -21,5 +21,4 @@ Para executar o projeto você deve seguir os seguintes passos:
 - execute o comando: ```composer install```
 - execute o comando: ```php artisan key:generate``` 
 - execute o comando: ```npm install```
-- execute o comando: ```npm run dev```
 - execute o comando: ```npm run build```
