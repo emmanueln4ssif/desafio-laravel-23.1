@@ -4,7 +4,7 @@
     Desafio Laravel 2023.1
 </h1>
 
-## Sobre o desafio
+## Sobre o desafio:
 
 O desafio tem como intuito treinar os novos membros da Code Jr., afim de familiarizarem melhor com o framework desenvolvendo um sitema de gerenciamento interno de uma academia fictícia, com as funcionalidades definidas no documento de requisitos disponibilizado.
 
