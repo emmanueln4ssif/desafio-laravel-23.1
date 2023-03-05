@@ -13,17 +13,6 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     
-                    <div class="row">
-                        <div class="col-sm-6 mb-3 mb-sm-0">
-                          <div class="card">
-                            <div class="card-body">
-                              <h5 class="card-title"><b>Funcionários</b></h5>
-                              <p class="card-text">Gerencie seus funcionários</p>
-                              <a href="funcionarios" class="btn btn-success">Acessar</a>
-                            </div>
-                          </div>
-                        </div>
-
                         <div class="col-sm-6">
                           <div class="card">
                             <div class="card-body">
@@ -35,13 +24,16 @@
                         </div>
                       </div>
 
-                      <div class="card text-center" style="margin-top: 2%">
-                        <div class="card-body">
-                          <h5 class="card-title"><b>Envio de emails</b></h5>
-                          <p class="card-text">Canal de comunicação direta com os alunos</p>
-                          <a href="envio_email" class="btn btn-success">Acessar</a>
+                      <div class="row">
+                        <div class="col-sm-6 mb-3 mb-sm-0">
+                          <div class="card">
+                            <div class="card-body">
+                              <h5 class="card-title"><b>Aulas</b></h5>
+                              <p class="card-text">Gerencie suas aulas</p>
+                              <a href="aulas" class="btn btn-success">Acessar</a>
+                            </div>
+                          </div>
                         </div>
-                      </div>
                       
 
                 </div>
