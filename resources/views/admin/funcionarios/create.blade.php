@@ -18,6 +18,7 @@
 </div>
 @endif
 
+@can('view', $leitor = Auth::user())
 <form id="form-adicionar" action="{{ route('funcionarios.store') }}" method="post">
                     
     @csrf
@@ -60,5 +61,6 @@
         </div>
     </div>
 </form>
+@endcan
 
 </x-app-layout>

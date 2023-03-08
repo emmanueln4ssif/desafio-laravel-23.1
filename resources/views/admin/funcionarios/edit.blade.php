@@ -8,6 +8,7 @@
         </h2>
     </x-slot>
 
+@can('view', $leitor = Auth::user())
 <form action="{{ route('funcionarios.update', $funcionario->id) }}" method="POST">
                     
     @csrf
@@ -52,6 +53,7 @@
 </div>
         
     </form> 
+    @endcan
     
 </x-app-layout>
 

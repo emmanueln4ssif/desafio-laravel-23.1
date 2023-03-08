@@ -19,8 +19,17 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white  shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
+
+                    @if(Auth::user()->id != 1)
+                    Você não pode gerenciar funcionários.
+                    @endif
+
                     <div class="table-responsive-xl">
+
                         <table class="table table-striped">
+
+                            @can('view', $leitor = Auth::user())
+                            
                             <thead>
                             <tr>
                                 <th scope="col"><h5>Nome do funcionário<h5></th>
@@ -35,35 +44,36 @@
                             </thead>
 
                             <tbody>
+                                
                                 @foreach ($funcionarios as $funcionario )
-                                    @if($funcionario->id != 1 || $funcionario->name != 'Administrador')
-                                        <tr>
-                                            <td>{{$funcionario->name}}</td>
-                                            <td>
-                                                <form action="{{ route('funcionarios.destroy', $funcionario->id) }}" method="post">
-                                                    @csrf
+                                @if($funcionario->id != 1 || $funcionario->name != 'Administrador')
+                                    <tr>
+                                        <td>{{$funcionario->name}}</td>
+                                        <td>
+                                            <form action="{{ route('funcionarios.destroy', $funcionario->id) }}" method="post">
+                                                @csrf
                                                     
-                                                    <div class="btn-group float-right" role="group" aria-label="...">
+                                                <div class="btn-group float-right" role="group" aria-label="...">
                                                 
-                                                        <a href="{{ route('funcionarios.show', $funcionario->id) }}" class="btn btn-dark float-right">
-                                                            <i class="fas fa-undo-alt">Ver</i>  
-                                                        </a>
+                                                    <a href="{{ route('funcionarios.show', $funcionario->id) }}" class="btn btn-dark float-right">
+                                                        <i class="fas fa-undo-alt">Ver</i>  
+                                                    </a>
 
-                                                        <a href="{{ route('funcionarios.edit', $funcionario->id) }}" class="btn btn-secondary float-right">
-                                                            <i class="fas fa-undo-alt">Editar</i>  
-                                                        </a>
+                                                    <a href="{{ route('funcionarios.edit', $funcionario->id) }}" class="btn btn-secondary float-right">
+                                                        <i class="fas fa-undo-alt">Editar</i>  
+                                                    </a>
 
-                                                        <button class="btn btn-danger float-right" type="submit">
-                                                            <i class="fas fa-undo-alt">Excluir</i> 
-                                                        </button>
-                                                
-                                                    </div>
-                                                </form>
-                                            </td>
-                                        @endif
-                                    @endforeach
+                                                    <button class="btn btn-danger float-right" type="submit">
+                                                        <i class="fas fa-undo-alt">Excluir</i> 
+                                                    </button>
 
-                                </tr>
+                                                </div>
+                                            </form>
+                                        </td>
+                                @endif
+                                @endforeach
+                            @endcan
+                                    </tr>
                             </tbody>
                         </table>
                     </div>

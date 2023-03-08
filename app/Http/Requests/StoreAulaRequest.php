@@ -24,13 +24,27 @@ class StoreAulaRequest extends FormRequest
     public function rules()
     {
         return [
-            'inicio_treino' => 'required|date',
-            'termino_treino' => 'required|date|after:inicio_treino',
+            'inicio_treino' => 'required|unique:aulas|date',
+            'termino_treino' => 'required|unique:aulas|date|after:inicio_treino',
             'custo' => 'required|numeric',
             'aluno_id'=>'required|integer',
-            'funcionario_id'=>'required|integer',
+            'funcionario_id'=>'required|integer'
+        ];
+    }
 
-            
+    public function attributes()
+    {
+        return [
+            'inicio_treino' => 'inicio da aula',
+            'termino_treino' => 'fim da aula',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'required' => 'O campo :attribute é obrigatório.',
+            'unique' => 'Você já possui uma aula agendada neste horário'
         ];
     }
 }

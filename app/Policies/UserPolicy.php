@@ -66,7 +66,10 @@ class UserPolicy
      */
     public function update(User $user, User $model)
     {
-        //
+        if($user->id == '1')
+            return false;
+        else
+            return true;
     }
 
     /**
