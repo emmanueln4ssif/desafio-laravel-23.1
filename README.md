@@ -7,8 +7,8 @@
 ## Sobre os usuários:
 
 admin: 
-    email: admin@admin.com
-    senha: 12345678 (padrão para todos os usuários)
+    <br>email: admin@admin.com
+    <br>senha: 12345678 (padrão para todos os usuários)
 
 ## Sobre o desafio:
 
