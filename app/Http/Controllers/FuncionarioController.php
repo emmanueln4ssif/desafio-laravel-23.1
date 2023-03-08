@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreFuncionarioRequest;
 use App\Models\Funcionario;
 use Illuminate\Http\Request;
 

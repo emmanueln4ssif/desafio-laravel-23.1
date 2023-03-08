@@ -8,6 +8,16 @@
     </h2>
 </x-slot>
 
+@if ($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
+
 <form id="form-adicionar" action="{{ route('funcionarios.store') }}" method="post">
                     
     @csrf
@@ -17,13 +27,13 @@
         <div class="container" style="margin-top: 5%">
 
             <label for="nome" class="required">Nome completo: </label>
-            <input type="text" name="nome" id="nome" autofocus class="form-control" required>
+            <input type="text" name="name" id="nome" autofocus class="form-control" required>
 
             <label for="email" class="required">Email: </label>
             <input type="email" name="email" id="email" autofocus class="form-control" required>
 
             <label for="senha" class="required">Senha: </label>
-            <input type="text" name="senha" id="senha" autofocus class="form-control" required>
+            <input type="text" name="password" id="senha" autofocus class="form-control" required>
 
             <label for="data" class="required">Data de nascimento: </label>
             <input type="date" name="data_nascimento" id="data_nascimento" autofocus class="form-control" required>

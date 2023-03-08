@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Funcionario;
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -15,6 +15,6 @@ class FuncionarioSeeder extends Seeder
      */
     public function run()
     {
-        Funcionario::factory()->count(7)->create();
+        User::factory()->count(7)->create();
     }
 }

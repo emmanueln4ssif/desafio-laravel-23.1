@@ -20,7 +20,7 @@ class Aula extends Model
     //a aula só pode ser dada por um funcionário
     public function funcionario()
     {
-        return $this->belongsTo(Funcionario::class, 'funcionario_id', 'id');
+        return $this->belongsTo(User::class, 'funcionario_id', 'id');
     }
 
     //a aula só pode ter um aluno

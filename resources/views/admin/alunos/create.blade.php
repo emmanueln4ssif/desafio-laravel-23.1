@@ -8,6 +8,16 @@
         </h2>
     </x-slot>
 
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
 
 <form id="form-adicionar" action="{{ route('alunos.store') }}" method="post">
                     

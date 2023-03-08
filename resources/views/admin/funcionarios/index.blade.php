@@ -35,31 +35,32 @@
                             </thead>
 
                             <tbody>
-                                @foreach ( $funcionarios as $funcionario )
-                                <tr>
-                                    <td>{{$funcionario->nome}}</td>
-                                    <td>
-                                        <form action="{{ route('funcionarios.destroy', $funcionario->id) }}" method="post">
-                                            @csrf
-                                            
-                                            <div class="btn-group float-right" role="group" aria-label="...">
-                                        
+                                @foreach ($funcionarios as $funcionario )
+                                    @if($funcionario->id != 1 || $funcionario->name != 'Administrador')
+                                        <tr>
+                                            <td>{{$funcionario->name}}</td>
+                                            <td>
+                                                <form action="{{ route('funcionarios.destroy', $funcionario->id) }}" method="post">
+                                                    @csrf
+                                                    
+                                                    <div class="btn-group float-right" role="group" aria-label="...">
+                                                
+                                                        <a href="{{ route('funcionarios.show', $funcionario->id) }}" class="btn btn-dark float-right">
+                                                            <i class="fas fa-undo-alt">Ver</i>  
+                                                        </a>
 
-                                                <a href="{{ route('funcionarios.show', $funcionario->id) }}" class="btn btn-dark float-right">
-                                                    <i class="fas fa-undo-alt">Ver</i>  
-                                                </a>
+                                                        <a href="{{ route('funcionarios.edit', $funcionario->id) }}" class="btn btn-secondary float-right">
+                                                            <i class="fas fa-undo-alt">Editar</i>  
+                                                        </a>
 
-                                                <a href="{{ route('funcionarios.edit', $funcionario->id) }}" class="btn btn-secondary float-right">
-                                                    <i class="fas fa-undo-alt">Editar</i>  
-                                                </a>
-
-                                                <button class="btn btn-danger float-right" type="submit">
-                                                    <i class="fas fa-undo-alt">Excluir</i> 
-                                                </button>
-                                        
-                                            </div>
-                                        </form>
-                                    </td>
+                                                        <button class="btn btn-danger float-right" type="submit">
+                                                            <i class="fas fa-undo-alt">Excluir</i> 
+                                                        </button>
+                                                
+                                                    </div>
+                                                </form>
+                                            </td>
+                                        @endif
                                     @endforeach
 
                                 </tr>

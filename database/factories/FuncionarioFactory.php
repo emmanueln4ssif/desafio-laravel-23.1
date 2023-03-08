@@ -18,13 +18,13 @@ class FuncionarioFactory extends Factory
     {
         return [
             
-           'nome' => $this->faker->unique()->name(),
-           'email' => $this->faker->unique()->safeEmail(),
-           'senha' => $this->faker->password(5, 15),
-           'data_nascimento' => $this->faker->date(),
-           'endereco' => $this->faker->address(),
-           'telefone' => $this->faker->phoneNumber(),
-           'periodo_trabalho' => $this->faker->randomElement(['Manhã', 'Tarde', 'Noite'])
+           //'nome' => $this->faker->unique()->name(),
+           //'email' => $this->faker->unique()->safeEmail(),
+           //'senha' => $this->faker->password(5, 15),
+           //'data_nascimento' => $this->faker->date(),
+           //'endereco' => $this->faker->address(),
+           //'telefone' => $this->faker->phoneNumber(),
+          // 'periodo_trabalho' => $this->faker->randomElement(['Manhã', 'Tarde', 'Noite'])
         ];
     }
 }

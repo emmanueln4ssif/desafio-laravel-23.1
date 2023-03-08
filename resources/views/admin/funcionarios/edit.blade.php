@@ -17,13 +17,13 @@
     <div class="container" style="margin-top: 5%">
 
         <label for="nome" class="required">Nome Completo: </label>
-        <input type="text" name="nome" id="nome" autofocus class="form-control" value="{{$funcionario->nome}}">
+        <input type="text" name="name" id="nome" autofocus class="form-control" value="{{$funcionario->name}}">
 
         <label for="email" class="required">Email: </label>
         <input type="email" name="email" id="email" autofocus class="form-control" value="{{$funcionario->email}}">
 
         <label for="senha" class="required">Senha: </label>
-        <input type="text" name="senha" id="senha" autofocus class="form-control" value="{{$funcionario->senha}}">
+        <input type="text" name="password" id="senha" autofocus class="form-control" value="{{$funcionario->password}}">
 
         <label for="data" class="required">Data de Nascimento: </label>
         <input type="date" name="data_nascimento" id="data_nascimento" autofocus class="form-control" value="{{$funcionario->data_nascimento}}">

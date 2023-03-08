@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreAulaRequest;
 use App\Models\Aluno;
 use App\Models\Aula;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AulaController extends Controller
 {
@@ -26,10 +28,11 @@ class AulaController extends Controller
      */
     public function create()
     {
-        $aula = new Aula();
         $alunos = Aluno::all();
+        $professor = Auth::user();
+        $aula = new Aula();
 
-        return view('/admin.aulas.create', compact('aula', 'alunos'));
+        return view('/admin.aulas.create', compact('aula', 'alunos', 'professor'));
     }
 
     /**
@@ -38,9 +41,10 @@ class AulaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreAulaRequest $request)
     {
-        $data = $request->all();
+        $data = $request->validated();
+        //dd($data);
         Aula::create($data);
 
         return redirect()->route('aulas.index')->with('success', true);

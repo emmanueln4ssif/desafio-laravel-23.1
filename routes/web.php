@@ -2,10 +2,11 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\FuncionarioController;
 use App\Http\Controllers\AlunoController;
 use App\Http\Controllers\AulaController;
 use App\Http\Controllers\UserController;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +24,9 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $usuario = Auth::user();
+    
+    return view('dashboard', compact('usuario'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -33,13 +36,13 @@ Route::middleware('auth')->group(function () {
 
 //Funcionarios
 //              url                                    nome no controller
-    Route::get('/funcionarios', [FuncionarioController::class, 'index'])->name('funcionarios.index');
-    Route::get('/funcionarios/create', [FuncionarioController::class, 'create'])->name('funcionarios.create');
-    Route::get('/funcionarios/{funcionario}/edit', [FuncionarioController::class, 'edit'])->name('funcionarios.edit');
-    Route::get('/funcionarios/{funcionario}', [FuncionarioController::class, 'show'])->name('funcionarios.show');
-    Route::post('/funcionarios', [FuncionarioController::class, 'store'])->name('funcionarios.store');
-    Route::post('/funcionarios/{funcionario}', [FuncionarioController::class, 'update'])->name('funcionarios.update');
-    Route::post('/funcionarios/delete/{funcionario}', [FuncionarioController::class, 'destroy'])->name('funcionarios.destroy');
+    Route::get('/funcionarios', [UserController::class, 'index'])->name('funcionarios.index');
+    Route::get('/funcionarios/create', [UserController::class, 'create'])->name('funcionarios.create');
+    Route::get('/funcionarios/{funcionario}/edit', [UserController::class, 'edit'])->name('funcionarios.edit');
+    Route::get('/funcionarios/{funcionario}', [UserController::class, 'show'])->name('funcionarios.show');
+    Route::post('/funcionarios', [UserController::class, 'store'])->name('funcionarios.store');
+    Route::post('/funcionarios/{funcionario}', [UserController::class, 'update'])->name('funcionarios.update');
+    Route::post('/funcionarios/delete/{funcionario}', [UserController::class, 'destroy'])->name('funcionarios.destroy');
 
 //Alunos
     Route::get('/alunos', [AlunoController::class, 'index'])->name('alunos.index');
@@ -55,12 +58,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/aulas/create', [AulaController::class, 'create'])->name('aulas.create');
     Route::get('/aulas/{funcionario}/edit', [AulaController::class, 'edit'])->name('aulas.edit');
     Route::get('/aulas/{aula}', [AulaController::class, 'show'])->name('aulas.show');
-    Route::post('/aulas', [AulaController::class, 'store'])->name('aulas.store');
+    Route::post('/aulas/store', [AulaController::class, 'store'])->name('aulas.store');
     Route::post('/aulas/{funcionario}', [AulaController::class, 'update'])->name('aulas.update');
     Route::post('/aulas/delete/{funcionario}', [AulaController::class, 'destroy'])->name('aulas.destroy');
 
 //User(Admin)
-    Route::get('/envio_email', [UserController::class, 'index'])->name('user.index');
+    Route::get('/envio_email', [UserController::class, 'email'])->name('user.email');
 
 
 });

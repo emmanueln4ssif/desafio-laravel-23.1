@@ -19,11 +19,16 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'name' => "Administrador",
-            'email' => "admin@admin.com",
+            
+            'name' => $this->faker->unique()->name(),
+            'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => Hash::make('12345678'),
-            'remember_token' => Str::random(10),
+            'data_nascimento' => $this->faker->date(),
+            'endereco' => $this->faker->address(),
+            'telefone' => $this->faker->phoneNumber(),
+            'periodo_trabalho' => $this->faker->randomElement(['Manhã', 'Tarde', 'Noite']),
+            'remember_token' => Str::random(10)
         ];
     }
 
