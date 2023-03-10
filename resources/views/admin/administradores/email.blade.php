@@ -1,12 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-   {{$mensagem}}
-</body>
-</html>
+<x-mail::message>
+
+        <h2>Olá, aluno!</h2>
+        <br>
+        {{$mensagem}}
+        <br>
+        <br>
+        Att,
+        <br>
+        Comunicação Academia.
+
+</x-mail::message>
+

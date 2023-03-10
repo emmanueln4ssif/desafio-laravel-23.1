@@ -51,7 +51,7 @@ class NovoEmail extends Mailable
     public function content()
     {
         return new Content(
-            view: 'admin.administradores.email',
+            markdown: 'admin.administradores.email',
             with:[ 
                 'mensagem' => $this->mensagem,
             ],
