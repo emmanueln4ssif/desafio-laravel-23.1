@@ -6,7 +6,6 @@
 
 ## Sobre os usuários:
 
-admin: 
     <br>email: admin@admin.com
     <br>senha: 12345678 (padrão para todos os usuários)
 
