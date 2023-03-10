@@ -8,13 +8,15 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Facades\Mail;
 
-class EnviarEmailNovoEmail //implements ShouldQueue
+class EnviarEmailNovoEmail implements ShouldQueue
 {
     /**
      * Create the event listener.
      *
      * @return void
      */
+
+
     public function __construct()
     {
         //
@@ -28,7 +30,8 @@ class EnviarEmailNovoEmail //implements ShouldQueue
      */
     public function handle(\App\Events\NovoEmail $event)
     {
-        $nome = $event->nome;
+        //dd($event);
+        $mensagem = $event->mensagem;
 
         $alunos = Aluno::all();
 
@@ -38,7 +41,7 @@ class EnviarEmailNovoEmail //implements ShouldQueue
 
            Mail::to($aluno->email)
             ->later(now()->addSecond($multiplicador * 5), 
-            new \App\Mail\NovoEmail($nome));
+            new \App\Mail\NovoEmail($mensagem));
 
         }
     }

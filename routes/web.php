@@ -44,8 +44,13 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/visualizando-email', function(){
-    return new NovoEmail('SOCORRO');
+
+    return view('admin.administradores.emailCorpo');
+    
 })->name('visualizando.email');
+
+    //email
+Route::post('/enviando-email',[EmailController::class, 'envioPersonalizado'])->name('enviando.email');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -79,17 +84,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/aulas/store', [AulaController::class, 'store'])->name('aulas.store');
     Route::post('/aulas/{funcionario}', [AulaController::class, 'update'])->name('aulas.update');
     Route::post('/aulas/delete/{funcionario}', [AulaController::class, 'destroy'])->name('aulas.destroy');
-
-    //email
-    Route::get('/enviando-email', function(){
-
-        $eventoNovoEmail = new EventsNovoEmail('ola');
-    
-        event($eventoNovoEmail);
-        
-        return 'success';
-    
-    })->name('enviando.email');
 
 });
 

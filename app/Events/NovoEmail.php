@@ -20,11 +20,11 @@ class NovoEmail
      * @return void
      */
 
-    public $nome;
+    public $mensagem;
     
-    public function __construct($nome)
+    public function __construct($mensagem)
     {
-        $this->nome = $nome;
+       $this->mensagem = $mensagem;
     }
 
     /**

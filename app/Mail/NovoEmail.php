@@ -10,6 +10,7 @@ use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Mail\Mailables\Address;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Mail\Mailables\Headers;
+use Illuminate\Mail\Message;
 
 class NovoEmail extends Mailable
 {
@@ -21,11 +22,12 @@ class NovoEmail extends Mailable
      * @return void
      */
 
-    public $nome;
+     protected $mensagem;
 
-    public function __construct($nome)
+    public function __construct($mensagem)
     {
-        $this->nome = $nome;
+        //dd($mensagem);
+        $this->mensagem = $mensagem;
     }
 
     /**
@@ -38,7 +40,6 @@ class NovoEmail extends Mailable
         return new Envelope(
             from: new Address('admin@academia.br', 'Comunicação Academia'),
             subject: 'Atenção!',
-            
         );
     }
 
@@ -50,11 +51,12 @@ class NovoEmail extends Mailable
     public function content()
     {
         return new Content(
-            markdown: 'admin.administradores.emaill',
-            with: [
-                'nome' => $this->nome,
+            view: 'admin.administradores.email',
+            with:[ 
+                'mensagem' => $this->mensagem,
             ],
-            //text: 'admin.administradores.emaill'
+            text: 'admin.administradores.email'
+
         );
     }
 

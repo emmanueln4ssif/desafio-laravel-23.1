@@ -20,6 +20,7 @@ class EventServiceProvider extends ServiceProvider
         ],
         \App\Events\NovoEmail::class => [
             \App\Listeners\EnviarEmailNovoEmail::class,
+            \App\Listeners\LogNovoEmail::class,
         ]
     ];
 
