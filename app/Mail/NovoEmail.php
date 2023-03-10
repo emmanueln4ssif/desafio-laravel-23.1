@@ -26,7 +26,6 @@ class NovoEmail extends Mailable
 
     public function __construct($mensagem)
     {
-        //dd($mensagem);
         $this->mensagem = $mensagem;
     }
 

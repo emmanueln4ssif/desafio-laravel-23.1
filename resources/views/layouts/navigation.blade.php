@@ -16,6 +16,34 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('alunos.index')" :active="request()->routeIs('alunos.index')">
+                        {{ __('Alunos') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('aulas.index')" :active="request()->routeIs('aulas.index')">
+                        {{ __('Aulas') }}
+                    </x-nav-link>
+                </div>
+
+                @can ('view', $user = Auth::user())
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('funcionarios.index')" :active="request()->routeIs('funcionarios.index')">
+                        {{ __('Funcionários') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('visualizando.email')" :active="request()->routeIs('visualizando.email')">
+                        {{ __('Email') }}
+                    </x-nav-link>
+                </div>
+                @endcan
+
+
             </div>
 
             <!-- Settings Dropdown -->
