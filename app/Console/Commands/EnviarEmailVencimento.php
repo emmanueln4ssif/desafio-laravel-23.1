@@ -37,7 +37,7 @@ class EnviarEmailVencimento extends Command
 
         foreach($alunos as $aluno)
         {
-            if($aluno->data_validade < $tomorrow)
+            if($aluno->data_validade == $tomorrow)
             {
                 Mail::to($aluno->email)->send(new EnvioVencimento($aluno->nome));
             }
