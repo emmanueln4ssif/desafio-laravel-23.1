@@ -37,9 +37,12 @@ class EnviarEmailVencimento extends Command
 
         foreach($alunos as $aluno)
         {
-            if($aluno->data_validade == $tomorrow)
+            $diff = 0;
+            $diff = $tomorrow->diff($aluno->data_validade);
+
+            if($diff->days == 0)
             {
-                Mail::to($aluno->email)->send(new EnvioVencimento($aluno->nome));
+                Mail::to($aluno->email)->send(new EnvioVencimento($aluno->nome, $aluno->data_validade));
             }
         }
     }

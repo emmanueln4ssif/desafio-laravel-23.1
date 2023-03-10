@@ -20,11 +20,12 @@ class EnvioVencimento extends Mailable
      * @return void
      */
 
-    public $nome;
+    public $nome, $data;
 
-    public function __construct($nome)
+    public function __construct($nome, $data)
     {
         $this->nome = $nome;
+        $this->data = $data;
     }
 
     /**
