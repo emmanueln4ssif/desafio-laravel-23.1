@@ -8,12 +8,13 @@
         </h2>
     </x-slot>
 
+    
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
 
-                    <form id="" action="" method="">
+                    <form id="form-adicionar" action="{{ route('email.enviar') }}" method="get">
 
                         <div class = "texto">
                             <h6>
@@ -23,7 +24,10 @@
                         </div>
 
                         <div class="form-group">
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" placeholder="">
+                                
+
+                            </textarea>
                         </div>
 
                         <div style="margin-top: 2%">

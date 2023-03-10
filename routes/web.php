@@ -1,12 +1,26 @@
 <?php
 
+namespace App\Http\Controllers;
+
+/*
 use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AlunoController;
 use App\Http\Controllers\AulaController;
 use App\Http\Controllers\UserController;
+*/
+
+use App\Events\NovoEmail as EventsNovoEmail;
 use App\Models\User;
+use App\Models\Aluno;
+use App\Mail\NovoEmail;
+
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Contracts\Mail\Mailable;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +42,10 @@ Route::get('/dashboard', function () {
     
     return view('dashboard', compact('usuario'));
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/visualizando-email', function(){
+    return new NovoEmail('SOCORRO');
+})->name('visualizando.email');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -62,9 +80,16 @@ Route::middleware('auth')->group(function () {
     Route::post('/aulas/{funcionario}', [AulaController::class, 'update'])->name('aulas.update');
     Route::post('/aulas/delete/{funcionario}', [AulaController::class, 'destroy'])->name('aulas.destroy');
 
-//User(Admin)
-    Route::get('/envio_email', [UserController::class, 'email'])->name('user.email');
+    //email
+    Route::get('/enviando-email', function(){
 
+        $eventoNovoEmail = new EventsNovoEmail('ola');
+    
+        event($eventoNovoEmail);
+        
+        return 'success';
+    
+    })->name('enviando.email');
 
 });
 

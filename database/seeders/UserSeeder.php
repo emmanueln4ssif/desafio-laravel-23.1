@@ -23,6 +23,11 @@ class UserSeeder extends Seeder
             'email_verified_at' => now(),
             'password' => Hash::make('12345678'), // password
             'remember_token' => Str::random(10),
+            'data_nascimento' => '2000/01/01',
+            'endereco' => 'Nuvem',
+            'telefone' => '55123456789',
+            'periodo_trabalho' => 'Dia'
+
         ]);
     }
 }

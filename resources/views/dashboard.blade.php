@@ -26,7 +26,7 @@
                         <div class="card-body">
                           <h5 class="card-title"><b>Envio de emails</b></h5>
                           <p class="card-text">Canal de comunicação direta com os alunos</p>
-                          <a href="envio_email" class="btn btn-success">Acessar</a>
+                          <a href="email" class="btn btn-success">Acessar</a>
                         </div>
                       </div>
                   @endcan

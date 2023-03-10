@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\EnvioVencimento;
 use App\Models\Aluno;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class AlunoController extends Controller
 {
@@ -16,6 +19,7 @@ class AlunoController extends Controller
     public function index()
     {
         $alunos = Aluno::all(); //pega todos os membros da tabela, como objeto
+       
         return view('/admin.alunos.index', compact('alunos')); //olhar o caminho a partir da pasta views
     }
 
@@ -27,6 +31,7 @@ class AlunoController extends Controller
     public function create()
     {
         $aluno = new Aluno();
+
         return view('/admin.alunos.create', compact('aluno'));
     }
 
@@ -91,6 +96,8 @@ class AlunoController extends Controller
     public function destroy(Aluno $aluno)
     {
         $aluno->delete();
+
         return redirect()->route('alunos.index')->with('success', true);
     }
+
 }
