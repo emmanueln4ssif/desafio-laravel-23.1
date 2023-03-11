@@ -29,32 +29,36 @@
                             </thead>
 
                             <tbody>
-                                @foreach ( $alunos as $aluno )
-                            <tr>
-                                <td>{{$aluno->nome}}</td>
-                                <td>
-                                    <form action="{{ route('alunos.destroy', $aluno->id) }}" method="post">
-                                        @csrf
-                                        
-                                        <div class="btn-group float-right" role="group" aria-label="...">
-                                    
-                                        <a href="{{ route('alunos.show', $aluno->id) }}" class="btn btn-dark float-right">
-                                            <i class="fas fa-undo-alt">Ver</i>  
-                                        </a>
-                                        
-                                            <a href="{{ route('alunos.edit', $aluno->id) }}" class="btn btn-secondary float-right">
-                                            <i class="fas fa-undo-alt">Editar</i>  
-                                        </a>
 
-                                        <button class="btn btn-danger float-right" type="submit">
-                                            <i class="fas fa-undo-alt">Excluir</i> 
-                                        </button>
-                                    
-                                        </div>
-                                    </form>
-                                </td>
+                                @foreach ( $alunos as $aluno )
+
+                                <tr>
+                                    <td>{{$aluno->nome}}</td>
+                                    <td>
+                                        <form action="{{ route('alunos.destroy', $aluno->id) }}" method="post">
+                                            @csrf
+                                            
+                                            <div class="btn-group float-right" role="group" aria-label="...">
+                                        
+                                            <a href="{{ route('alunos.show', $aluno->id) }}" class="btn btn-dark float-right">
+                                                <i class="fas fa-undo-alt">Ver</i>  
+                                            </a>
+                                            
+                                                <a href="{{ route('alunos.edit', $aluno->id) }}" class="btn btn-secondary float-right">
+                                                <i class="fas fa-undo-alt">Editar</i>  
+                                            </a>
+
+                                            <button class="btn btn-danger float-right" type="submit">
+                                                <i class="fas fa-undo-alt">Excluir</i> 
+                                            </button>
+                                        
+                                            </div>
+                                        </form>
+                                    </td>
+                                </tr>
+
                                 @endforeach
-                            </tr>
+                                
                             </tbody>
 
                         </table>

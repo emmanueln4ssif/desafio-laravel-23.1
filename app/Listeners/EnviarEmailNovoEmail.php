@@ -30,7 +30,7 @@ class EnviarEmailNovoEmail implements ShouldQueue
      */
     public function handle(\App\Events\NovoEmail $event)
     {
-        //dd($event);
+        
         $mensagem = $event->mensagem;
 
         $alunos = Aluno::all();

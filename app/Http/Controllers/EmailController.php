@@ -36,7 +36,7 @@ class EmailController extends Controller
     public function envioPersonalizado(Request $request)
     {
         $eventoNovoEmail = new NovoEmail($request['mensagem']);
-        //dd($eventoNovoEmail);
+        
         event($eventoNovoEmail);
      
         return redirect()->route('dashboard');
